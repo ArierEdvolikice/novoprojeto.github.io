@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Page-Enter" content="blendTrans(Duration=.01)" />
+	<meta http-equiv="Page-Exit" content="blendTrans(Duration=.01)" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+	<link rel="ajax" type="ajax" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js">
+
+	<link rel="stylesheet" type="text/css" href="css/combos.css">
+
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
+	<title></title>
+
+</head>
+
+<div id="covers_everything" class="covers_everything"></div>
+
+<body onLoad="timer()">
+
+	<div id="tempo_01" class="tempo_01">
+		<p id="time"></p>
+		<p id="data"></p>
+	</div>
+
+	<div id="botão_switch">
+		<p id="TEXTO_ABERTO" style="display: none;" >ABERTO</p>
+		<p id="TEXTO_FECHADO">FECHADO</p>
+		<label id="switch" class="switch">
+			<input id="myCheckbox" onclick="toggle_visibility('TEXTO_ABERTO', 'TEXTO_FECHADO');" type="checkbox">
+			<span class="slider round"></span>
+		</label>
+	</div>
+
+	<nav class="navbar navbar-inverse bg-inverse fixed-top bg-faded">
+    
+
+    <div class="row"> <p id="nome_loja" class="nome_loja">VIRTUAL LANCHES</p>
+        <div class="col">
+        	<!--<button class="clear-cart btn btn-danger"><img src="img/lixo.svg"></button>-->
+          <button id="botão_compra" type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart"><span class="total-count"></span><img src="img/carrinho.png"></button>
+      </div>
+    </div>
+</nav>
+
+
+
+	<input type="checkbox" id="check">
+  <label id="icone" for="check"><img src="img/menu_sand.png"></label>
+  <div class="barra" id="barra">
+    <nav id="menu_lateral" class="menu_lateral">
+    <a href="tela_01.html"><div class="link">Início</div></a>
+    <a href=""><div class="link">Minha Conta</div></a>
+    <a href=""><div class="link">Pedidos Atendidos</div></a>
+    <a href=""><div class="link">Produtos Disponíveis</div></a>
+    <a href=""><div class="link">Lista de Produtos</div></a>
+    <a href=""><div class="link">Cadastro de Novos Produtos</div></a>
+    <a href=""><div class="link">Alteração/Cadastro Produtos</div></a>
+  </nav>
+    </div>
+
+	<div class="grid-container-01">
+		<a href="combos.html"><div class="grid-item"><img src="img/COMBO.png"></div></a>
+		<a href="combos.html"><div class="grid-item"><img src="img/COMBO.png"></div></a>
+		<a href="combos.html"><div class="grid-item"><img src="img/COMBO.png"></div></a>
+		<a href="combos.html"><div class="grid-item"><img src="img/COMBO.png"></div></a>
+		<a href="combos.html"><div class="grid-item"><img src="img/COMBO.png"></div></a>
+		<a href="combos.html"><div class="grid-item"><img src="img/COMBO.png"></div></a>
+	</div>
+
+	 <!-- Modal -->
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Carrinho</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="show-cart table">
+          
+        </table>
+        <div>Valor total: $<span class="total-cart"></span></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary">Finalizar Pedido</button>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<script src="js/produtos.js"></script>
+
+<script>
+	
+	function timer() {
+		var d = new Date();
+		document.getElementById('time').innerHTML = d.toLocaleTimeString();
+		setTimeout('timer()', 1000);
+	}
+
+</script>
+
+<script>
+	n =  new Date();
+	y = n.getYear() - 119 + 19;
+	m = n.getMonth() + 1;
+	d = n.getDate();
+	document.getElementById("data").innerHTML =" - " + d + "/" + m + "/" + y;
+</script>
+
+<script>
+	setTimeout(function() {
+		$("#covers_everything").fadeOut().empty();
+	}, 500);
+
+</script>
+
+
+
+</body>
+</html>
