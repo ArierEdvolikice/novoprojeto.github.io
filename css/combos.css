@@ -236,10 +236,10 @@ nav a {
   width: 45px;
   text-align: center;
   color: #fff;
-  /* line-height: 110%; */
+  line-height: 42px;
   cursor: pointer;
-  font-size: 31px;
-  /* font-weight: bolder;*/
+  font-size: 28px;
+  font-weight: bolder;
 
 }
 
